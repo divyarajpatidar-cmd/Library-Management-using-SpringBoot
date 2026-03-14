@@ -20,7 +20,7 @@ function Register() {
 
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
-
+          
         const payload = JSON.parse(atob(res.data.token.split(".")[1]));
         console.log("registration response:", res.data);
         console.log("DECODED TOKEN PAYLOAD:", payload);
