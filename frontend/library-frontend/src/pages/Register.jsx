@@ -24,7 +24,7 @@ function Register() {
         const payload = JSON.parse(atob(res.data.token.split(".")[1]));
         console.log("registration response:", res.data);
         console.log("DECODED TOKEN PAYLOAD:", payload);
-        const roles = payload.roles || [];
+
 
         if (res.data.role === "ROLE_LIBRARIAN") {
           navigate("/librarian");
