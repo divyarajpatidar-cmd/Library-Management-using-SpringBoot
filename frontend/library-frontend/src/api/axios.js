@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8085"
+  baseURL: "https://library-management-using-springboot.onrender.com"
 });
 
 api.interceptors.request.use((config) => {
