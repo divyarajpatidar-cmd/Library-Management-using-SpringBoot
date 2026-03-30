@@ -39,7 +39,13 @@ public class SecurityConfig {
             .cors(cors -> {})  // 🔥 ADD THIS LINE
 
             .authorizeHttpRequests(auth -> auth
-            		.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+            		.requestMatchers(HttpMethod.OPTIONS, "/**","/manifest.json",
+          "/favicon.ico",
+          "/",
+          "/index.html",
+          "/static/**",
+          "/public/**",
+          "/assets/**").permitAll()
                     .requestMatchers("/auth/**").permitAll()
                     .requestMatchers("/error").permitAll()
                     
