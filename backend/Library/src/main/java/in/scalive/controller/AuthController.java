@@ -13,7 +13,7 @@ import in.scalive.dto.RegisterRequest;
 import in.scalive.service.AuthService;
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://*.vercel.app")
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
