@@ -39,13 +39,7 @@ public class SecurityConfig {
             .cors(cors -> {})  // 🔥 ADD THIS LINE
 
             .authorizeHttpRequests(auth -> auth
-            		.requestMatchers(HttpMethod.OPTIONS, "/**","/manifest.json",
-          "/favicon.ico",
-          "/",
-          "/index.html",
-          "/static/**",
-          "/public/**",
-          "/assets/**").permitAll()
+            		.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                     .requestMatchers("/auth/**").permitAll()
                     .requestMatchers("/error").permitAll()
                     
@@ -80,7 +74,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://*.vercel.app"));
+        configuration.setAllowedOriginPatterns(List.of("https://*.vercel.app"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

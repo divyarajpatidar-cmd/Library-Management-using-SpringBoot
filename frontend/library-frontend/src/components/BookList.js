@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function BookList() {
-
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -21,22 +20,14 @@ function BookList() {
 
   return (
     <div>
-
-      {books.map(book => (
-
+      {books.map((book) => (
         <div key={book.id}>
-
           <h4>{book.title}</h4>
           <p>{book.author}</p>
 
-          <button onClick={() => issueBook(book.id)}>
-            Issue Book
-          </button>
-
+          <button onClick={() => issueBook(book.id)}>Issue Book</button>
         </div>
-
       ))}
-
     </div>
   );
 }

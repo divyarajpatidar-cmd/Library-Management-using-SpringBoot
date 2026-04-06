@@ -21,8 +21,10 @@ public class AppConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://*.vercel.app", "http://localhost:3000")    
-                        .allowedMethods("*");
+                        .allowedOrigins("*") // for testing
+                        .allowedMethods("*")
+                        .allowedHeaders("*")
+                        .allowCredentials(false);
             }
         };
     }

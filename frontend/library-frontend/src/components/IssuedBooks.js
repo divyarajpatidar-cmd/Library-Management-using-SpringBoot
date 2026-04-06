@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function IssuedBooks() {
-
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -10,50 +9,42 @@ function IssuedBooks() {
   }, []);
 
   const loadIssuedBooks = async () => {
-
     const res = await api.get("/student/my-books");
     setBooks(res.data);
-
   };
 
   const returnBook = async (bookId) => {
-
     const res = await api.post(`/student/return/${bookId}`);
 
     alert("Book returned");
 
     loadIssuedBooks();
-
   };
 
   return (
-    console.log(books) ||
-    <div>
+    console.log(books) || (
+      <div>
+        {books.map((book) => (
+          <div key={book.bookTitle}>
+            <h4>{book.bookTitle}</h4>
 
-      {books.map(book => (
-        <div key={book.bookTitle}>
+            <p>Issue Date: {book.issueDate}</p>
 
-          <h4>{book.bookTitle}</h4>
+            <p>Due Date: {book.dueDate}</p>
 
-          <p>Issue Date: {book.issueDate}</p>
+            <p>Status: {book.status}</p>
 
-          <p>Due Date: {book.dueDate}</p>
+            <p>Fine: ₹{book.fine}</p>
 
-          <p>Status: {book.status}</p>
-
-          <p>Fine: ₹{book.fine}</p>
-
-          {book.status === "ISSUED" && (
-            <button onClick={() => returnBook(book.bookId)}>
-              Return Book
-            </button>
-          )}
-
-        </div>
-
-      ))}
-
-    </div>
+            {book.status === "ISSUED" && (
+              <button onClick={() => returnBook(book.bookId)}>
+                Return Book
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
+    )
   );
 }
 
