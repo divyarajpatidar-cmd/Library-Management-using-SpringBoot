@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-LibraryApplication<Library>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "in.scalive.LibraryApplication",
+      "projectName": "Library",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
